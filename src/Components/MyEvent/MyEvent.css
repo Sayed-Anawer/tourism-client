@@ -1,0 +1,9 @@
+
+
+.test:hover{
+    background-color: white;
+    box-shadow: 10px 10px 5px #a05959;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s ease
+} ;
