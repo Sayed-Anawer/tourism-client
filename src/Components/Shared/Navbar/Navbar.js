@@ -13,7 +13,7 @@ const NavBar = () => {
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <span
-              className="ms-2  text-warning custom-style p-2 "
+              className="ms-2  text-danger fw-bold custom-style p-2 "
               style={{ border: "1px solid white", borderRadius: "10px" }}
             >
               Tours Club

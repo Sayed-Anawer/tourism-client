@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { SpinnerCircular } from "spinners-react";
 
 const PlaceTrip = () => {
   const [details, setDetails] = useState([]);
@@ -40,8 +41,14 @@ const PlaceTrip = () => {
 
   if (!newData) {
     return (
-      <div>
-        <h2 className="text-center">Loading....</h2>
+      <div className="d-flex justify-content-center align-items-center ">
+        <SpinnerCircular
+          size={90}
+          thickness={149}
+          speed={107}
+          color="rgba(57, 106, 172, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+        />
       </div>
     );
   } else {
@@ -57,9 +64,10 @@ const PlaceTrip = () => {
                 alt=""
               />
             </div>
-            <h3>Description of {newData.name.substr(8)}</h3>
+            <h2 className="mt-3 mb-5 ms-3">{newData?.name}</h2>
+            <h3 className="text-primary">Description </h3>
             <p> {newData?.desc} </p>
-            <h3>Cancellation policy</h3>
+            <h3 className="text-danger">Cancellation policy</h3>
             <ul>
               <li>
                 50% of the total amount will be deducted if cancellation

@@ -4,7 +4,8 @@ const TourOperator = () => {
   return (
     <div className="container my-4">
       <h2 className="text-center mb-5">
-        Tour Operator All Over The World Have Chosen Tours Club
+        Tour Operator All Over The World Have Chosen{" "}
+        <span className="text-danger"> Tours Club </span>
       </h2>
       <div className="mb-5">
         <img

@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./Banner.css";
 const Banner = () => {
   return (
     <div
-      className="img-fluid d-flex  align-items-center justify-content-center"
+      className=" img-fluid d-flex  align-items-center justify-content-center "
       style={{
         height: "80vh",
         backgroundAttachment: " fixed",
@@ -13,10 +13,7 @@ const Banner = () => {
       }}
     >
       <div>
-        <h1
-          className="text-light text-center text-capitalize my-4 "
-          style={{ fontSize: "3.2rem" }}
-        >
+        <h1 className="text-light text-center text-capitalize my-4 ">
           Let's Make your best <br /> trip ever
         </h1>
         <h5 className="    text-light  text-center" style={{ color: "gray" }}>
