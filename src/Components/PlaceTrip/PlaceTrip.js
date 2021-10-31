@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const PlaceTrip = () => {
   const [details, setDetails] = useState([]);
@@ -30,7 +31,7 @@ const PlaceTrip = () => {
       .post("https://enigmatic-taiga-44069.herokuapp.com/userEventData", data)
       .then((res) => {
         if (res.data.acknowledged) {
-          alert("data Inserted");
+          Swal.fire("Good job!", "Your Trip is Inserted", "success");
           history.push("/myEvents");
           reset();
         }

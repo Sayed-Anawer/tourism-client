@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./MyEvent.css";
+import Swal from "sweetalert2";
 
 const MyEvent = () => {
   const [myEvents, setMyEvents] = useState([]);
@@ -14,18 +15,31 @@ const MyEvent = () => {
       .then((res) => setMyEvents(res.data));
   }, []);
 
+  // Deleting or Cancel
   const handleDelete = (id) => {
-    const proceed = window.confirm("Are you sure, you want to delete ?");
-    if (proceed) {
-      axios
-        .delete(`https://enigmatic-taiga-44069.herokuapp.com/deleteTrip/${id}`)
-        .then((res) => {
-          if (res.data.deletedCount > 0) {
-            const remaining = myEvents.filter((tour) => tour._id !== id);
-            setMyEvents(remaining);
-          }
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonColor: "#3085d6",
+      confirmButtonColor: " #d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://enigmatic-taiga-44069.herokuapp.com/deleteTrip/${id}`
+          )
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              const remaining = myEvents.filter((tour) => tour._id !== id);
+              setMyEvents(remaining);
+            }
+          });
+        Swal.fire("Deleted!", "Your Trip booking has been deleted.", "success");
+      }
+    });
   };
   if (!myEvents || myEvents.length === 0) {
     return (

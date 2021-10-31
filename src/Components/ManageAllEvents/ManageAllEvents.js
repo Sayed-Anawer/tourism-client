@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ManageAllEvents = () => {
   const [manageAllUsers, setManageAllUsers] = useState([]);
@@ -12,28 +13,46 @@ const ManageAllEvents = () => {
       .then((res) => setManageAllUsers(res.data));
   }, [status]);
 
+  // Delete User trip booking
   const handleDelete = (id) => {
-    const proceed = window.confirm("Are you sure, you want to delete ?");
-    if (proceed) {
-      axios
-        .delete(
-          `https://enigmatic-taiga-44069.herokuapp.com/deleteUsersTrip/${id}`
-        )
-        .then((res) => {
-          if (res.data.deletedCount > 0) {
-            const remaining = manageAllUsers.filter((tour) => tour._id !== id);
-            setManageAllUsers(remaining);
-          }
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this data !",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonColor: "#3085d6",
+      confirmButtonColor: " #d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://enigmatic-taiga-44069.herokuapp.com/deleteUsersTrip/${id}`
+          )
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              const remaining = manageAllUsers.filter(
+                (tour) => tour._id !== id
+              );
+              setManageAllUsers(remaining);
+            }
+          });
+        Swal.fire("Deleted!", "User trip booking has been deleted.", "success");
+      }
+    });
   };
 
+  // Update User trip booking Status
   const handleEditStatus = (id) => {
     axios
       .put(`https://enigmatic-taiga-44069.herokuapp.com/updateStatus/${id}`)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          alert("Status Updated to Approved");
+          Swal.fire(
+            "Updated",
+            "User Trip Booking status has been Approved",
+            "success"
+          );
           setStatus(true);
         }
       });

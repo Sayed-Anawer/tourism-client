@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+
 const AddMoreTrips = () => {
   const { register, handleSubmit, reset } = useForm();
   document.title = "Add More Trips";
@@ -9,7 +11,11 @@ const AddMoreTrips = () => {
       .post("https://enigmatic-taiga-44069.herokuapp.com/addMoreTrips", data)
       .then((res) => {
         if (res.data.insertedId) {
-          alert("Trip Added");
+          Swal.fire(
+            "Trip Added",
+            "Your new Trip is Added to the home page ",
+            "success"
+          );
           reset();
         }
       });
@@ -59,7 +65,11 @@ const AddMoreTrips = () => {
           />
         </div>
 
-        <input className="btn btn-primary" type="submit" value="Add Trip" />
+        <input
+          className="btn btn-primary btn-lg"
+          type="submit"
+          value="Add Trip"
+        />
       </form>
     </div>
   );
