@@ -95,7 +95,7 @@ const PlaceTrip = () => {
                     id="exampleInputName"
                     className="form-control"
                     defaultValue={user?.displayName}
-                    {...register("userName")}
+                    {...register("userName", { required: true })}
                   />
                 </div>
                 <div className="mb-3">
@@ -106,7 +106,7 @@ const PlaceTrip = () => {
                     className="form-control"
                     id="exampleInputEmail1"
                     defaultValue={user?.email}
-                    {...register("userEmail")}
+                    {...register("userEmail", { required: true })}
                   />
                 </div>
                 <div className="mb-3">
@@ -117,7 +117,7 @@ const PlaceTrip = () => {
                     className="form-control"
                     id="exampleInputTourName"
                     defaultValue={newData?.name}
-                    {...register("name")}
+                    {...register("name", { required: true })}
                   />
                 </div>
                 <div className="mb-3">
@@ -128,7 +128,7 @@ const PlaceTrip = () => {
                     className="form-control"
                     id="exampleInputTourPrice"
                     defaultValue={newData?.price}
-                    {...register("price")}
+                    {...register("price", { required: true })}
                   />
                 </div>
                 <div className="mb-3">
@@ -139,7 +139,7 @@ const PlaceTrip = () => {
                     type="date"
                     className="form-control"
                     id="exampleInputDate"
-                    {...register("date")}
+                    {...register("date", { required: true })}
                   />
                 </div>
                 <div className="mb-3">
@@ -149,7 +149,7 @@ const PlaceTrip = () => {
                   <input
                     className="form-control"
                     id="exampleInputAddress"
-                    {...register("address")}
+                    {...register("address", { required: true })}
                   />
                 </div>
 

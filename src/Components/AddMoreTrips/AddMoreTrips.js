@@ -31,7 +31,7 @@ const AddMoreTrips = () => {
           <input
             className="form-control"
             id="exampleInputTripName"
-            {...register("name")}
+            {...register("name", { required: true })}
           />
         </div>
         <div className="mb-3">
@@ -41,7 +41,7 @@ const AddMoreTrips = () => {
           <input
             className="form-control"
             id="exampleInputTripPrice"
-            {...register("price")}
+            {...register("price", { required: true })}
           />
         </div>
         <div className="mb-3">
@@ -51,7 +51,7 @@ const AddMoreTrips = () => {
           <input
             className="form-control"
             id="exampleInputDesc"
-            {...register("desc")}
+            {...register("desc", { required: true })}
           />
         </div>
         <div className="mb-3">
@@ -61,7 +61,7 @@ const AddMoreTrips = () => {
           <input
             className="form-control"
             id="exampleInputImg"
-            {...register("img_url")}
+            {...register("img_url", { required: true })}
           />
         </div>
 
