@@ -92,6 +92,7 @@ const PlaceTrip = () => {
                     Name
                   </label>
                   <input
+                    required
                     id="exampleInputName"
                     className="form-control"
                     defaultValue={user?.displayName}
@@ -103,6 +104,7 @@ const PlaceTrip = () => {
                     Email address
                   </label>
                   <input
+                    required
                     className="form-control"
                     id="exampleInputEmail1"
                     defaultValue={user?.email}
@@ -114,6 +116,7 @@ const PlaceTrip = () => {
                     Tour Name
                   </label>
                   <input
+                    required
                     className="form-control"
                     id="exampleInputTourName"
                     defaultValue={newData?.name}
@@ -125,6 +128,7 @@ const PlaceTrip = () => {
                     Price
                   </label>
                   <input
+                    required
                     className="form-control"
                     id="exampleInputTourPrice"
                     defaultValue={newData?.price}
@@ -136,6 +140,7 @@ const PlaceTrip = () => {
                     Date
                   </label>
                   <input
+                    required
                     type="date"
                     className="form-control"
                     id="exampleInputDate"
@@ -147,6 +152,7 @@ const PlaceTrip = () => {
                     Address
                   </label>
                   <input
+                    required
                     className="form-control"
                     id="exampleInputAddress"
                     {...register("address", { required: true })}

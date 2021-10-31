@@ -29,6 +29,7 @@ const AddMoreTrips = () => {
             Tour Name
           </label>
           <input
+            required
             className="form-control"
             id="exampleInputTripName"
             {...register("name", { required: true })}
@@ -39,6 +40,7 @@ const AddMoreTrips = () => {
             Price
           </label>
           <input
+            required
             className="form-control"
             id="exampleInputTripPrice"
             {...register("price", { required: true })}
@@ -49,6 +51,7 @@ const AddMoreTrips = () => {
             Description
           </label>
           <input
+            required
             className="form-control"
             id="exampleInputDesc"
             {...register("desc", { required: true })}
@@ -59,6 +62,7 @@ const AddMoreTrips = () => {
             Image Url
           </label>
           <input
+            required
             className="form-control"
             id="exampleInputImg"
             {...register("img_url", { required: true })}
