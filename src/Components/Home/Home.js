@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Subscribe from "../Subscribe/Subscribe";
+import TourOperator from "../TourOperator/TourOperator";
 
 const Home = () => {
   const [allTours, setAllTours] = useState([]);
@@ -60,6 +61,7 @@ const Home = () => {
           </div>
         </div>
         <About />
+        <TourOperator />
         <Subscribe />
       </div>
     );

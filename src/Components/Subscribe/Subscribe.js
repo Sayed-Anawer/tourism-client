@@ -2,7 +2,10 @@ import React from "react";
 
 const Subscribe = () => {
   return (
-    <div className="container shadow-lg p-5" style={{ borderRadius: "20px" }}>
+    <div
+      className="container shadow-lg p-5 my-5"
+      style={{ borderRadius: "20px" }}
+    >
       <div className="row align-items-center justify-content-center">
         <div className="col-md-5 fw-bold my-3">
           <h4>
